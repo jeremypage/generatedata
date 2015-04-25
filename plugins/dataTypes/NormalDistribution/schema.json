@@ -3,13 +3,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
 	"properties": {
-
-		// TODO need range validation on these... but what ARE the ranges???
 		"mean": {
-			"type": "number"
+			"type": "string"
 		},
 		"sigma": {
-			"type": "number"
+			"type": "string"
 		}
 	},
 	"required": ["mean", "sigma"]

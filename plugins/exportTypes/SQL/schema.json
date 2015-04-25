@@ -7,7 +7,7 @@
 			"type": "string"
 		},
         "databaseType": {
-            "enum": []
+            "enum": ["MySQL", "Postgres", "SQLite", "Oracle", "MSSQL"]
         },
         "createTable": {
             "type": "boolean"
@@ -24,10 +24,8 @@
         "insertBatchSize": {
             "type": "integer"
         },
-
-        // the row number of an auto-incremenet field [TODO rename]
-        "primaryKey": {
-            "type": "integer"
+        "addPrimaryKey": {
+            "type": "boolean"
         }
 	},
 	"required": ["tableName", "databaseType"]

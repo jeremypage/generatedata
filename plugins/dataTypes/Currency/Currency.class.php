@@ -85,7 +85,7 @@ class DataType_Currency extends DataTypePlugin {
 		);
 	}
 
-	public function getRowGenerationOptions($generator, $postdata, $colNum, $numCols) {
+	public function getRowGenerationOptionsUI($generator, $postdata, $colNum, $numCols) {
 		$generationOptions = array(
 			"format"         => $postdata["dtCurrencyFormat_$colNum"],
 			"rangeFrom"      => $postdata["dtCurrencyRangeFrom_$colNum"],
@@ -97,7 +97,17 @@ class DataType_Currency extends DataTypePlugin {
 		return $generationOptions;
 	}
 
+	public function getRowGenerationOptionsAPI($generator, $json, $numCols) {
+		$generationOptions = array(
+			"format"         => $json->settings->format,
+			"rangeFrom"      => $json->settings->rangeFrom,
+			"rangeTo"        => $json->settings->rangeTo,
+			"symbol"         => $json->settings->symbol,
+			"symbolLocation" => $json->settings->symbolLocation
+		);
 
+		return $generationOptions;
+	}
 
 	public function getExampleColumnHTML() {
 		$L = Core::$language->getCurrentLanguageStrings();

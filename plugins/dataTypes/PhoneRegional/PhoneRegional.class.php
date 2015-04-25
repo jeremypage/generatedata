@@ -204,7 +204,7 @@ EOF;
 	 * @param $numCols
 	 * @return array|mixed
 	 */
-	public function getRowGenerationOptions($generator, $postdata, $colNum, $numCols) {
+	public function getRowGenerationOptionsUI($generator, $postdata, $colNum, $numCols) {
 		$countries = $generator->getCountries();
 
 		// if the user didn't select any Country plugins, they want ANY old region
@@ -219,6 +219,27 @@ EOF;
 		return $countryPhoneFormats;
 	}
 
+	/**
+	 * Loop through the formats returned by the client for the supported country plugins and make a note of the
+	 * format chosen.
+	 * @param object $generator
+	 * @param $json
+	 * @param $numCols
+	 * @return array|mixed
+	 */
+	public function getRowGenerationOptionsAPI($generator, $json, $numCols) {
+		$countries = $generator->getCountries();
+
+		// if the user didn't select any Country plugins, they want ANY old region
+		$countryPhoneFormats = array();
+		foreach ($countries as $slug) {
+			if (property_exists($json->settings->regions, $slug)) {
+				$countryPhoneFormats[$slug] = $json->settings->regions->{$slug};
+			}
+		}
+
+		return $countryPhoneFormats;
+	}
 
 	public function getHelpHTML() {
 		$html =<<<END

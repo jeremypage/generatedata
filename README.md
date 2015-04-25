@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/benkeen/generatedata.png?branch=master)](https://travis-ci.org/benkeen/generatedata)
 
-This is the repo for the standalone, downloadable version of [generatedata.com](http://www.generatedata.com).
+This is the repo for the downloadable version of [generatedata.com](http://www.generatedata.com). The 
+script is basically an *engine* to generate any sort of random data in any format. It currently comes with 30 or 
+so *Data Types* (types of data it generates), plus 8 *Export Types* (formats for the data), but it can be extended 
+in any way you want. Check out the [developer documentation](http://benkeen.github.io/generatedata/developer.html)
+for that.
 
 Generally the trunk is pretty stable, but it's never guaranteed. If you're downloading the code, I'd suggest getting
 the most recent tag: https://github.com/benkeen/generatedata/releases
@@ -13,14 +17,20 @@ the most recent tag: https://github.com/benkeen/generatedata/releases
 
 ## How to Install / Documentation
 
-For the installation instructions, user documentation and developer documentation, check out:
+For installation instructions, user and developer documentation, check out:
 http://benkeen.github.io/generatedata/
 
-Installation is really, really simple. I deliberately wrote the script to be as self-contained as possible and not require
-additional PHP/Server configuration when setting it up. That said, it *does* require PHP 5.3.0 or later. See the documentation
-for more info.
+Installation is really, really simple. I deliberately wrote the script to be as self-contained as possible and not 
+require additional PHP/Server configuration when setting it up. That said, it *does* require PHP 5.3.0 or later. See 
+the documentation for more info.
 
-## Test Coverage
+## Installation via Vagrant
+
+There's a prepackaged installation available via vagrant [found here](https://github.com/benkeen/generatedata-vagrant),
+courtesy of Daragh Courtney. If you're not familiar with Vagrant, basically it's a package that includes not just the
+generatedata script, but the entire development environment along with it: PHP, MySQL and Apache. Super handy.
+
+# Test Coverage
 
 Test coverage is pretty weak right now! I'm in the midst of adding phpunit tests and integrating it with Travis, but it's
 going to be a little hairy for a while just yet.
@@ -39,6 +49,7 @@ contributors agree that all code is released under this license.
 
 In addition to the many folks who submit bug reports, a big thanks to the following for their help extending the script:
 
+- [Daragh Courtney](https://github.com/daraghc) - [Data Generator Vagrant repo](https://github.com/benkeen/generatedata-vagrant)
 - [Zhao Yang](https://github.com/jptiancai) - Chinese language file (3.1.4)
 - [Anton Nizhegorodov](https://github.com/an1zhegorodov) - Batch size SQL export option (3.1.3)
 - Zeeshan Shaikh - PAN, PIN, CVV, Track 1 and 2 Data Types (3.1.1)
@@ -54,6 +65,10 @@ In addition to the many folks who submit bug reports, a big thanks to the follow
 - [Kent Chenery](https://github.com/kchenery) - MS SQL plugin (3.0.1)
 
 ## Changelog
+
+3.2.0 - Jan 29, 2015
+- Adds a new REST API as an alternative way to generate data. See the [API Documentation](http://benkeen.github.io/generatedata/api.html)
+for more information.
 
 3.1.4 - Sept 6, 2014
 - Chinese language file added, thanks to [Zhao Yang](https://github.com/jptiancai)
